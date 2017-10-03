@@ -1,0 +1,329 @@
+<div id="cursos">
+    <section class="content-header">
+        <h1>
+            Test Habilidades Críticas
+            <small>
+                Instrumento para Estudiantes de 15 a 18 años
+            </small>
+        </h1>
+        
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title"></h3>
+                        <p style="text-align:center;"><strong>LEE CON ATENCIÓN:</strong><br/>
+                        Esta no es una prueba ni mucho menos un examen de clase, es sólo un ejercicio donde vas a expresar las formas en las que usas tus habilidades criticas. <br/>
+                        Es importante que elijas la opción que mejor refleje tu manera de pensar, de esta manera podemos proponer estrategias para desarrollar habilidades criticas en el aula.<br/>
+                        A continuación, se proponen varias situaciones y diferentes formas de pensar frente a ellas. Debes leer la situación y cada opción. </br>
+                        Luego, debes seleccionar la opción que más se acomode a tu forma de pensar y de afrontar situaciones de la vida real. <br/>
+                        Muchas gracias por tomarte el tiempo para resolver el ejercicio.
+                        </p>
+                        <p><strong>* las preguntas contestadas con anterioridad no se visualizaran</strong></p>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        
+                        <form>
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(1) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 1:  </strong>Un estudiante cualquiera, por accidente ha hecho un daño en uno de los baños del colegio. El joven resbaló en el piso mojado y se sostuvo del lavamanos para evitar darse un golpe en la cabeza; con tan mala suerte que el lavamanos se cayó y se quebró. El docente de este estudiante no sabe quién hizo el daño y ha reunido a todos los alumnos de su grupo para preguntar qué ocurrió y quién fue el alumno que lo hizo. Lee todas las opciones y marca la que creas que refleja mejor tu manera de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema1">&nbsp; 1.	La situación puede considerarse un accidente.  La humedad del piso ocasionó que un estudiante resbalara y para no perder el equilibrio y golpearse se sostuvo del lavamanos, la pieza de loza cayó al suelo y se quebró.  
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema1">&nbsp; 2.	Lo  sucedido fue un accidente. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema1">&nbsp; 3.	Es innegable que fue un accidente que pudo haber traído otras consecuencias. No obstante, como en otras situaciones en las que se provocan daños,  es necesario encontrar la persona que lo hizo para que repare y evitar otros riesgos derivados del estado en que quedó el lavamanos.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema1">&nbsp; 4.	Al estar el piso mojado cualquiera hubiera podido pasar por tal situación. El piso mojado siempre es un riesgo en un baño.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5"  name="dilema1">&nbsp; 5.	Los accidentes suelen suceder y en muchos casos son impredecibles. Es como cuando hay un accidente entre dos automóviles, es imposible predecir la situación y controlar los daños.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema1">&nbsp; 6.	Esto fue un accidente que afortunadamente no ocasionó una situación de gravedad. Una posibilidad, entre muchas otras, es que el estudiante hubiera podido cortarse con los trozos del lavamanos u ocasionarle una herida a otro estudiante.
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema1" ng-click="vm.registrarRespuestas('1')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 2 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(2) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 2:  </strong>Una estudiante entra sola al laboratorio de química a buscar un libro que dejó olvidado. El laboratorio está alejado del resto del colegio. Al entrar, encuentra a un joven y a una estudiante cerca de las sustancias químicas y al parecer,  jugando con ellas sin supervisión. Selecciona la opción que más se ajusta a tu forma de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema2">&nbsp; 1.	Aunque el laboratorio de química es un lugar apartado del colegio que se presta para estar  a solas, entiendo que este no es lugar para permanecer en horarios diferentes a las clases  y menos manipulando las sustancias químicas.   
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema2">&nbsp; 2.	Aunque el laboratorio de química está alejado y por sus características se presta para que este tipo de situaciones se presenten, los jóvenes toman a la ligera  este tipo de acciones, sin tener en cuenta las consecuencias que puedan derivarse de los hechos. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema2">&nbsp; 3.	Si el lugar está abierto lo normal es que se pueda entrar.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema2">&nbsp; 4.	El laboratorio de química es un lugar para estar en las clases con el acompañamiento  de los profesores. Los estudiantes deben tener sentido de responsabilidad, ser más conscientes y tener en cuenta que no deben estar allí solos. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5" name="dilema2">&nbsp; 5.	Dado que el  laboratorio de química es lejano y apartado es probable que los jóvenes pensaran  que no serían sorprendidos manipulando las sustancias químicas.  
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema2">&nbsp; 6.	Siendo el laboratorio de química un sitio apartado del colegio y por no haber clase en ese momento, los jóvenes vieron la oportunidad de estar allí sin tener en cuenta que alguien podría llegar. 
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema2" ng-click="vm.registrarRespuestas('2')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 3 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(3) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 3:  </strong>Un joven se encuentra en un almacén. Cuando está en la caja pagando entrega un billete de 10 pesos y su cuenta es de 8 pesos. El cajero le devuelve 12 pesos pues, al parecer, se confundió y pensó que el comprador le entregó un billete de 20 pesos. El comprador se da cuenta de lo que pasa, pero no dice nada y se va con tranquilidad. El cajero deberá reponer el dinero que falte cuando entregue la caja al final día. Selecciona la opción que mejor refleje tu forma de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema3">&nbsp; 1.	En situaciones tan cotidianas como esta puede observarse la ética de las personas. Por la actitud del comprador se puede decir que no es una persona honesta.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema3">&nbsp; 2.	El comprador se apropió de un dinero que no le pertenecía.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3"  name="dilema3">&nbsp; 3.	Es posible que el comprador nunca hubiera estado en una situación similar, en la que por encima de la honestidad está aprovechar la oportunidad que se presenta. Tal vez por esto decidió quedarse con el dinero.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema3">&nbsp; 4.	Legalmente hablando, esta es una falta grave: es un robo.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5" name="dilema3">&nbsp; 5.	El apropiarse de algo que no te  pertenece, que es de otra persona,  implica un perjuicio no solo  para ella.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema3">&nbsp; 6.	Es semejante lo sucedido en el almacén a lo que ocurre en otros lugares, incluido el salón de clase. A un compañero se le pierde alguna moneda que es encontrada luego por otro estudiante  y, aunque sepa a quien le pertenece, no dice nada y la conserva.
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema3" ng-click="vm.registrarRespuestas('3')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 4 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(4) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 4:  </strong>En la Escuela Secundaria Portachuelo se está presentando un caso de acoso escolar o bullying, en el que tres estudiantes han estado maltratando y amenazando durante un tiempo a uno de sus compañeros. En un descanso, estos tres estudiantes insultan y golpean a su compañero, mientras otros estudiantes los miran. Finalmente, llega la profesora y comienza a interrogar a los alumnos presentes sobre lo sucedido. A continuación, se exponen algunas de las formas de pensar de los estudiantes que vieron la agresión. Marca la opción que más se acerque a tu forma de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema4">&nbsp; 1.	Haciendo una comparación con otros niños que a veces pelean, uno de los estudiantes que observó el hecho mencionó que no se trataba sólo de una agresión, pues estos tres estudiantes siempre atacan al mismo estudiante.  
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema4">&nbsp; 2.	Otro estudiante mencionó que es necesario considerar diferentes perspectivas del problema. Él planteó que era necesario escuchar las versiones de los involucrados de manera independiente y conocer las razones de su comportamiento, para identificar puntos de acuerdo y lograr una solución.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema4">&nbsp; 3.	La visión de otro de los estudiantes fue que lo importante es reconocer con exactitud las razones que llevan a los tres estudiantes a atacar de manera permanente a su compañero, de esta forma se podría llegar a una solución.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema4">&nbsp; 4.	Otro estudiante advirtió, trayendo a colación las situaciones de las clases,  que ya se había hablado de este tipo de problemática denominada acoso escolar (bullying), que era importante recordar lo visto para poder solucionar el problema.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5" name="dilema4">&nbsp; 5.	Otro estudiante mencionó que la situación se ha perpetuado no sólo por las acciones  de los tres agresores, sino por la actitud pasiva del estudiante agredido y la indiferencia del resto de grupo, quienes como testigos, han hecho que el problema continúe. De ahí que sea necesario contar con  la participación de todos para buscar soluciones.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema4">&nbsp; 6.	El último de los estudiantes que observó el hecho relató que los tres agresores insultaron a su compañero y lo agredieron físicamente.	
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema4" ng-click="vm.registrarRespuestas('4')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 5 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(5) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 5:  </strong>Un estudiante se encuentra jugando en la Internet y le da gran importancia a la necesidad de ganar. Un desconocido le escribe y le dice que puede ayudarle a sumar puntos en el juego a cambio de una fotografía suya en ropa interior. A continuación, se presentan varias formas de entender esta situación. Marca la opción que mejor refleje tu forma de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema5">&nbsp; 1.	El estudiante no acepta la invitación y se retira del juego. Al reflexionar sobre lo que  sucedió recuerda lo abordado en su escuela acerca de la seguridad en la red y los riesgos a los que se enfrentan hoy los niños y los jóvenes al navegar en la Internet. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema5">&nbsp; 2.	Al pensar en lo sucedido el estudiante lo asemeja a lo que sucede con las personas que quieren ganar dinero a través de la venta de fotografías comprometedoras en la red.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema5">&nbsp; 3.	La reflexión sobre lo sucedido lleva al estudiante a pensar en que establecer relaciones con desconocidos en la red es peligroso, dado que existe la posibilidad latente de que la información proporcionada con estas personas no sea real.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema5">&nbsp; 4.	Al pensar en lo acontecido, el estudiante plantea la situación bajo los siguientes hechos: yo estaba jugando, un desconocido me habla, me pide una fotografía en ropa interior y me ayuda a ganar.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5"  name="dilema5">&nbsp; 5.	Comparar las ganancias y pérdidas derivadas de la decisión de acceder a la petición del desconocido o de negarse, es lo que permite al estudiante tomar la decisión. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema5">&nbsp; 6.	El estudiante se plantea una serie de posibilidades o sucesos que podrían ocurrir en el caso de acceder a la solicitud del desconocido.
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema5" ng-click="vm.registrarRespuestas('5')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 6 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(6) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 6:  </strong>Un estudiante se encuentra jugando en la Internet y le da gran importancia a la necesidad de ganar. Un desconocido le escribe y le dice que puede ayudarle a sumar puntos en el juego a cambio de una fotografía suya en ropa interior. A continuación, se presentan varias formas de entender esta situación. Marca la opción que mejor refleje tu forma de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema6">&nbsp; 1.	Simplemente el papá está enojado, el hijo también y pelearon.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema6">&nbsp; 2.	La situación de esta familia podría empeorar, ya que con el tiempo esta adicción tiende a ser más severa.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema6">&nbsp; 3.	De acuerdo con mis conocimientos, el alcohol en el cuerpo afecta las funciones cerebrales impidiendo que quien consume sea consciente de lo que hace. Es posible que eso le haya sucedido al hijo.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" name="dilema6">&nbsp; 4.	Una vez que padre e hijo estén tranquilos, el diálogo permitirá a ambos exponer las razones por las que llegaron a tal situación; esto permitirá vislumbrar soluciones.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5" name="dilema6">&nbsp; 5.	El alcoholismo impide a las personas llevar una vida tranquila y feliz. Es por ello, que hasta no superar esta adicción, esta familia no podrá disfrutar de una convivencia armoniosa. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema6">&nbsp; 6.	El alcoholismo hace que el comportamiento de las personas se altere y que se llegue a estados de inconciencia que no permiten que el estudiante  recuerde lo sucedido.
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema6" ng-click="vm.registrarRespuestas('6')">Guardar</save>
+                                </div>
+                            </div>
+                            <!-- Dilema 7 <-->
+                            <div class="panel panel-primary" ng-show="vm.preguntas.indexOf(7) == -1">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><strong>DILEMA 7:  </strong>En un partido de fútbol un jugador hace caer a otro jugador del equipo contrario, en una jugada que podía haber terminado en un gol. La caída fue algo dura, pero no hubo ninguna lesión importante. Sin embargo, el jugador en el suelo finge dolor y hace creer que el golpe fue mucho más grave. El árbitro sanciona la falta con un tiro libre. Se presentan a continuación diferentes posturas sobre el hecho, debes marcar aquella que refleje mejor tu manera de pensar:</div>
+                                <div class="panel-body">
+                                    <div style="padding-left:10px;">
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="1" name="dilema7">&nbsp; 1.	Las faltas van en contra de las reglas, al no respetarlas se deben asumir las consecuencias. Es como otras situaciones de la vida en las que, por ejemplo,  si cometes una infracción al conducir, implica que pagues una multa.  
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="2" name="dilema7">&nbsp; 2.	Las reglas son necesarias para conservar el orden en cualquier campo de la vida de las personas.  No respetarlas casi siempre genera consecuencias.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="3" name="dilema7">&nbsp; 3.	En el fútbol por lo general se presentan faltas, incluso, hay partidos en los que se dan fuertes enfrentamientos entre jugadores, quienes reciben una penalización.
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="4" ame="dilema7">&nbsp; 4.	Cada jugador ha de tener una postura particular frente al hecho. El que tumbó al otro buscaba una oportunidad de gol; el jugador en el piso no podía desperdiciar la oportunidad de generar un tiro libre. Ambos jugadores tenían una razón para su comportamiento. 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="5" name="dilema7">&nbsp; 5.	Por un lado, al tirar al piso a su contrincante el jugador estaba evitando que el equipo contrario metiera un gol. Por otro lado,  el jugador en el piso no podía desperdiciar la oportunidad de generar un tiro libre, única posibilidad de que la jugada terminara en gol.	
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="radio" value="6" name="dilema7">&nbsp; 6.	Si cometo faltas voy a tener consecuencias, es lo mismo que pasa en el fútbol, las faltas se sancionan con  tarjetas amarillas y rojas.  
+                                            </label>
+                                        </div>
+                                    </div>   
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="btn-dilema7" ng-click="vm.registrarRespuestas('7')">Guardar</save>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section><!-- /.content -->
+</div>
