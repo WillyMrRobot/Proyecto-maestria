@@ -2,8 +2,8 @@
 
 try {
     session_start();
-    if (isset($_SESSION['email'])) {
-        echo "{\"status\":\"ok\",\"data\":\"BackEnd.html\",\"email\":\"" . $_SESSION['email'] . "\",\"name\":\"" . $_SESSION['nombre'] . "\"}";
+    if (isset($_SESSION['correo'])) {
+        echo "{\"status\":\"ok\",\"data\":\"BackEnd.html\",\"correo\":\"" . $_SESSION['correo'] . "\",\"name\":\"" . $_SESSION['nombre'] . "\"}";
     }
     else {
         //El usuario no tiene session

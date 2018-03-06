@@ -14,9 +14,6 @@
     <link href="Content/main.min.css" rel="stylesheet">
     <link href="Content/ui.css" rel="stylesheet">
     <link href="Content/proxima-font.css" rel="stylesheet">
-    
-             
-    
 
 </head>
 <body class="ui-ly sidebar-mini" ng-app="actividadesApp">
@@ -122,7 +119,8 @@
 <script src="Scripts/app/common/common.services.js" type="text/javascript"></script>
 <script src="Scripts/app/common/utilities.js" type="text/javascript"></script>
 <script src="Scripts/app/actividades/services.js" type="text/javascript"></script>
-<script src="Scripts/app/actividades/habilidadesController.js" type="text/javascript"></script>
+<!--<script src="Scripts/app/actividades/habilidadesController.js" type="text/javascript"></script>-->
+<script src="Scripts/app/actividades/blogController.js" type="text/javascript"></script>
 <script src="Scripts/app/actividades/inicioController.js" type="text/javascript"></script>
 </body>
 </html>

@@ -24,6 +24,16 @@
                     controller: 'habilidadesCtrl',
                     controllerAs: 'vm'
                 })
+                .when('/foro_detail', {
+                    templateUrl: 'Vistas/Actividades/blog_detail.html',
+                    controller: 'blogCtrl',
+                    controllerAs: 'vm'
+                })
+                .when('/foro', {
+                    templateUrl: 'Vistas/Actividades/blog_list.html',
+                    controller: 'blogCtrl',
+                    controllerAs: 'vm'
+                })
                 
             ;
     }

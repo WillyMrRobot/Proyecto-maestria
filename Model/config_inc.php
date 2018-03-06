@@ -23,7 +23,7 @@ class database extends PDO {
     public function __construct() {
         $this->engine = 'mysql';
         $this->host = 'localhost';
-        $this->database = 'portalactividades';
+        $this->database = 'blog';
         $this->user = 'wb';
         $this->pass = '123';
         $this->dns = $this->engine.':dbname='.$this->database.';host='.$this->host;

@@ -5,7 +5,6 @@ date_default_timezone_set("America/Bogota");
 require_once '../Model/usuarios.php';
 
 /* Funcion para simular el $_POST */
-
 function getPost() {
     $request = file_get_contents('php://input');
     return json_decode($request, true);
@@ -13,8 +12,6 @@ function getPost() {
 
 $getPost = getPost();
         
-         
-
 $email = $getPost['email'];
 $password = $getPost['password'];
 

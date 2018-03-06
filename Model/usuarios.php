@@ -51,7 +51,7 @@ class ModelUsuarios {
     
     public function Login($email,$password) {
         try {
-            $sql = "SELECT * FROM usuarios WHERE password = :password and email = :email";
+            $sql = "SELECT * FROM usuario WHERE pwd_user = :password and correo = :email";
             $query = $this->db->prepare($sql);
             $query->bindParam(':email', $email);
             $query->bindParam(':password', $password);
@@ -61,14 +61,14 @@ class ModelUsuarios {
                 $count = $query->rowCount();
                 if ($count !== 0 ) {
                     $res = $query->fetch(PDO::FETCH_ASSOC);
-                    if ($password === $res['password'])
+                    if ($password === $res['pwd_user'])
                     {
-                        $_SESSION['id'] = $res['id'];
-                        $_SESSION['email'] = $res['email'];
-                        $_SESSION['nombre'] = $res['firstName']." ".$res['lastName'];
+                        $_SESSION['id_user'] = $res['id_user'];
+                        $_SESSION['correo'] = $res['correo'];
+                        $_SESSION['nombre'] = $res['nombre'];
                         return "{\"status\":\"ok\",\"data\":\"portal.html\"}";
                     }
-                    if ($password != $res['password'])
+                    if ($password != $res['pwd_user'])
                     {
                         return "{\"status\":\"error\",\"data\":\"NoPassword\}";
                     }

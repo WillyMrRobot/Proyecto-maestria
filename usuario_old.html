@@ -29,14 +29,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-		<style>
-			.col-center-block {
-				float: none;
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		</style>
+
     </head>
 
     <body ng-app="pageApp">
@@ -50,20 +43,20 @@
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>CONALPE - PROYECTO LECTURA CRÍTICA</strong> </h1>
-							<h2>Formulario de Ingreso</h2>
+							<h2>Formulario de Ingreso y Registro</h2>
                             <div class="description">
                             	<p>
-									Por favor ingrese los datos de correo y la contraseña suministrada.
+									Si no se ha registrado, por favor utilice el formulario de Registro
+									y una vez registrado utilice el formulario de ingreso.
                             	</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row">
-							
-                        <div class="col-sm-6 col-sm-offset-3" ng-controller="loginCtrl as vm">
+                        <div class="col-sm-5" ng-controller="loginCtrl as vm">
                         	
-                        	<div class="form-box" style="text-align:center;">
+                        	<div class="form-box">
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
 	                        			<h3>Ingrese a la plataforma</h3>
@@ -107,11 +100,132 @@
 										</form>
 			                    </div>
 		                    </div>
-						
-					</div>
+		                
+		                	
+	                        
+                        </div>
+                        
+                        <div class="col-sm-1 middle-border"></div>
+                        <div class="col-sm-1"></div>
+                        	
+                        <div class="col-sm-5" ng-controller="registroCtrl as vm">
+                        	
+                        	<div class="form-box">
+                        		<div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>Registrese</h3>
+	                            		<p>Diligencie el formulario para tener acceso a la plataforma:</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-pencil"></i>
+	                        		</div>
+	                            </div>
+	                            <div class="form-bottom">
+				                    
+										    
+									<form name="forms.estudianteForm" novalidate enctype="multipart/form-data">
+										<div class="form-group-sm"
+											ng-class="{'has-error':forms.estudianteForm.inputfirstName.$invalid && forms.estudianteForm.inputfirstName.$dirty}">
+											<label class="control-label" for="inputfirstName">Nombres</label>
+											<input class="form-control"
+												id="inputfirstName"
+												name="inputfirstName"
+												type="text"
+												placeholder="Nombres"
+												ng-model="vm.estudiante.firstName" required />
+										</div>
+
+										<div class="form-group-sm"
+											ng-class="{'has-error':forms.estudianteForm.inputlastName.$invalid && forms.estudianteForm.inputlastName.$dirty}">
+											<label class="control-label" for="inputlastName">Apellidos</label>
+											<input class="form-control"
+												id="inputlastName"
+												name="inputlastName"
+												type="text"
+												placeholder="Apellidos"
+												ng-model="vm.estudiante.lastName" required />
+										</div>
+
+
+										<div class="form-group-sm"
+											ng-class="{'has-error':forms.estudianteForm.inputEmail.$invalid && forms.estudianteForm.inputEmail.$dirty}">
+											<label class="control-label" for="inputEmail">Correo Electrónico</label>
+											<input class="form-control"
+												id="inputEmail"
+												name="inputEmail"
+												type="email"
+												placeholder="Correo"
+												ng-model="vm.estudiante.email" required />
+										</div>
+										<div class="form-group-sm"
+											ng-class="{'has-error':forms.estudianteForm.inputPassword.$invalid && forms.estudianteForm.inputPassword.$dirty}">
+											<label class="control-label" for="inputPassword">Contraseña</label>
+											<input class="form-control"
+												id="inputPassword"
+												name="inputPassword"
+												type="password"
+												placeholder="Contraseña"
+												ng-model="vm.estudiante.password" required />
+										</div>
+										<div class="form-group-sm"
+											ng-class="{'has-error':forms.estudianteForm.inputCurso.$invalid && forms.estudianteForm.inputCurso.$dirty}">
+											<label class="control-label" for="inputCurso">Curso</label>
+											<select class="form-control"
+												id="inputCurso"
+												name="inputCurso"
+												placeholder="Curso"
+												ng-model="vm.estudiante.curso" >
+												    <option>1002</option>
+												</select>
+										</div>
+										<div class="form-group-sm"
+												ng-class="{'has-error':forms.estudianteForm.inputbirthDate.$invalid &&
+													forms.estudianteForm.inputbirthDate.$dirty}">
+												<label class="control-label" for="inputbirthDate">Fecha Nacimiento</label>
+												<div class="input-group date" id="js-datetimepicker">
+													<input class="form-control datetimepicker"
+														id="inputbirthDate"
+														name="inputbirthDate"
+														type="text"
+														placeholder="Fecha Nacimiento"
+														ng-model="vm.estudiante.birth" />
+													<span class="input-group-addon">
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
+											</div>
+										<div class="form-group-sm">
+											<button class="btn btn-danger"
+													style="margin-right:10px;margin-top:10px;"
+													ng-click="vm.submit()"
+													ng-disabled="forms.estudianteForm.$invalid">
+												Registrarme
+											</button>
+										</div>
+										<div class="form-group">
+											
+												<p>* Todos los datos son requeridos.</p>
+											
+										</div>
+										<div class="form-group"
+											ng-show="vm.message">
+											<div class="col-md-6">
+												<pre style="font: inherit">{{vm.message }}</pre>
+											</div>
+										</div>
+
+
+									</form>
+				                        
+			                    </div>
+                        	</div>
+                        	
+                        </div>
                     </div>
+                    
                 </div>
             </div>
+            
         </div>
 
         <!-- Footer -->
