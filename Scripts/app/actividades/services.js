@@ -44,10 +44,37 @@
         return (request.then(handleSuccess, handleError));
     }
 
+    function getAllEntries() {
+        var request = $http({
+            method: 'POST', url: "Api/GetAllEntries.php", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+            data: {key: 'key'}
+        });
+        return (request.then(handleSuccess, handleError));
+    }
+
+    function getEntry(id_publicacion) {
+        var request = $http({method: 'POST', url:'Api/GetEntry.php',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+            data: {'id_publicacion':id_publicacion}
+        });
+        return (request.then(handleSuccess, handleError));
+    }
+
+    function getEntryComments(id_publicacion) {
+        var request = $http({method: 'POST', url:'Api/GetEntryComments.php',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+            data: {'id_publicacion':id_publicacion}
+        });
+        return (request.then(handleSuccess, handleError));
+    }
+
+    
+
 	return ({
         validarPreguntas:validarPreguntas,
         validarSesion:validarSesion,
-        registrarRespuestas:registrarRespuestas
+        registrarRespuestas:registrarRespuestas,
+        getAllEntries:getAllEntries,
+        getEntry:getEntry,
+        getEntryComments:getEntryComments
 	});
                 
     }

@@ -24,9 +24,9 @@
                     controller: 'habilidadesCtrl',
                     controllerAs: 'vm'
                 })
-                .when('/foro_detail', {
+                .when('/foro/:id_publicacion', {
                     templateUrl: 'Vistas/Actividades/blog_detail.html',
-                    controller: 'blogCtrl',
+                    controller: 'blogDetailCtrl',
                     controllerAs: 'vm'
                 })
                 .when('/foro', {

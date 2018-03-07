@@ -1,52 +1,60 @@
 <div id="cursos">
 	<section class="content-header">
-			<div class="row">
-				<div class="col-xs-8">
-					<h1>
-						Bienvenidos al Foro<br/>
-						<small>
-							Instrumento para Estudiantes de 15 a 18 años
-						</small>
-					</h1>
-				</div>
-				<div class="col-xs-4" style="text-align:right;">
-					<form class="navbar-form">
-        		<div class="form-group">
-          		<input type="text" class="form-control" placeholder="Buscar...">
-						</div>
-        		<button type="submit" class="btn btn-default">Buscar</button>
-					</form>
-				</div>
+		<div class="row">
+			<div class="col-xs-8">
+				<h1>
+					Bienvenidos al Foro
+					<br/>
+					<small>
+						Instrumento para Estudiantes de 15 a 18 años
+					</small>
+				</h1>
 			</div>
+			<div class="col-xs-4" style="text-align:right;">
+				<form class="navbar-form">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Buscar...">
+					</div>
+					<button type="submit" class="btn btn-default">Buscar</button>
+				</form>
+			</div>
+		</div>
 	</section>
-	<!-- Main content -->
-	<section class="content">
-			<div class="row">
-				<div class="col-xs-12">
-							<div class="panel panel-primary">
-								<!-- Default panel contents -->
-								<div class="panel-heading" style="text-align:center;">Titulo de la Entrada 2</div>
-								<div class="panel-body">
-									<p>Breve Resumen 2</p>
-									<p style="text-align: right;"><a class="btn btn-sm btn-primary" role="button">Leer mas...</a></p>
-								</div>
-								<div class="panel-footer" style="text-align:right;">Publicado por: Persona   Fecha: 03/05/2018</div>
-							</div>
-												
-						</div><!-- /.col -->
-						<div class="col-xs-12">
-								<div class="panel panel-primary">
-									<!-- Default panel contents -->
-									<div class="panel-heading" style="text-align:center;">Titulo de la Entrada</div>
-									<div class="panel-body">
-										<p>Breve Resumen</p>
-										<p style="text-align: right;"><a class="btn btn-sm btn-primary" role="button">Leer mas...</a></p>
-									</div>
-									<div class="panel-footer" style="text-align:right;">Publicado por: Persona   Fecha: 03/05/2018</div>
-								</div>
-							</div><!-- /.col -->
-			</div><!-- /.row -->
-	</section><!-- /.content -->
+	<section class="content" style="background-color:#f1f2f4;">
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-responsive">
+					<thead>
+						<th style="text-align: center;">Usuario</th>
+						<th style="text-align: center;">Tema</th>
+						<th style="text-align: center;">Comentarios</th>
+						<th style="text-align: center;">Visto</th>
+						<th style="text-align: center;">Creado</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="topic in vm.topics">
+							<td>
+								<img alt="" width="25" height="25" src="img/users/{{ topic.userFoto }}" class="avatar" title="{{ topic.userName}}" data-toggle="tooltip" data-placement="bottom" title="{{ topic.userName}}"/>
+							</td>
+							<td>
+									<p>{{ topic.titulo }}<button style="float:right;background-color:rgba(45,59,96,1);color:#fbf8f8;" ng-click="vm.comment(topic.id_publicacion)" class="btn btn-sm">Comentar</button></p>
+							</td>
+							<td style="text-align: center;">
+								<span class="badge" style="background-color: #c67605;">{{ topic.comentarios}}</span>
+							</td>
+							<td style="text-align: center;">
+								<span class="badge primary" style="background-color: #3a87ad;">{{ topic.visto}}</span>
+							</td>
+							<td style="text-align: center;">
+								<span><i class="fa fa-calendar"/>&nbsp;{{ topic.fecha_creacion | date}}</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			
+		</div>
+	</section>
 </div>
-
-
