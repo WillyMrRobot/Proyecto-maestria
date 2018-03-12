@@ -2,6 +2,20 @@
     "use strict";
     
     var app = angular.module("actividadesApp", ['ngRoute', 'ngSanitize', 'common.services']);
+
+    app.directive('dynamic', function ($compile) {
+        return {
+            restrict: 'A',
+            replace: true,
+            scope: {dynamic: '=dynamic'},
+            link: function postLink(scope, element, attrs) {
+                scope.$watch('dynamic', function (html) {
+                    element.html(html);
+                    $compile(element.contents())(scope);
+                });
+            }
+        };
+    });
     
     angular
         .module('actividadesApp')

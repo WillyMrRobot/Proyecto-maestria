@@ -66,6 +66,16 @@
         return (request.then(handleSuccess, handleError));
     }
 
+    function sendComment(comment) {
+        var request = $http({method: 'POST', url:'Api/EnviarComentario.php',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, 
+            data: {'id_publicacion':comment.id_publicacion,
+                   'comentario' : comment.comentario,
+                   'id_parent_comment':comment.id_parent_comment
+                  }
+        });
+        return (request.then(handleSuccess, handleError));
+    }   
+
     
 
 	return ({
@@ -74,7 +84,8 @@
         registrarRespuestas:registrarRespuestas,
         getAllEntries:getAllEntries,
         getEntry:getEntry,
-        getEntryComments:getEntryComments
+        getEntryComments:getEntryComments,
+        sendComment:sendComment
 	});
                 
     }
