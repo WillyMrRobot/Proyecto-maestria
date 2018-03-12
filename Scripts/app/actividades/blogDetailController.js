@@ -46,15 +46,17 @@
 				try {
 					if (dataJson.status === "ok") {
 						vm.entry = dataJson.data;
+						var compiledHtml = $compile(vm.entry.contenido)($scope);
+						$('#contenido').append(compiledHtml);
 					} else {
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							utilities.message("Error", "Atención", "danger");
+							//utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					utilities.message("Error", "Atención", "danger");
+					//utilities.message("Error", "Atención", "danger");
 				}
 			});
 		}
@@ -70,26 +72,29 @@
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							utilities.message("Error", "Atención", "danger");
+							//utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					utilities.message("Error", "Atención", "danger");
+					//utilities.message("Error", "Atención", "danger");
 				}
 			});
 		}
 		
 		vm.commentsPainted = [];
 
-		vm.formatData = function(comment) {
+		vm.formatData = function(comment,parent) {
+			var comentarioPadre = (parent.comentario) ? parent.comentario : "";
 			return `<div id="`+comment.id_comentario+`">
-								<div class="row" style="margin-top:5px;">
+								<div class="row" style="margin-top:5px;background-color:white;">
+									<div class="col-xs-12"><p style="font-style: italic;font-size: 10px;"`+comentarioPadre+`</div>
 									<div class="col-xs-2">
 										<i class="fa fa-user"/>`+comment.userName+`
 									</div>
 									<div class="col-xs-8">`+comment.comentario+`</div>
 									<div class="col-xs-2">
-										<button class="btn btn-primary" ng-click="vm.dejarComentario('`+comment.id_comentario+`')" value="Comentar">Comentar</button>
+										<i class="fa fa-calendar"/>`+comment.fecha_creacion+`
+										<!--<button class="btn btn-primary" ng-click="vm.dejarComentario('`+comment.id_comentario+`')" value="Comentar">Comentar</button>-->
 									</div>
 								</div>
 							</div>`;
@@ -112,7 +117,7 @@
 
 		vm.paint = function(data) {
 			var compiledHtml = $compile(data)($scope);
-			$('#comments').html(compiledHtml);
+			$('#comments').append(compiledHtml);
 		}
 
 		vm.guardarComentario = function (id_publicacion,id_parent_comment) {
@@ -123,23 +128,40 @@
 				var dataJson = result;
 				try {
 					if (dataJson.status === "ok") {
-						vm.comments = dataJson.data;
-						vm.paintComments(vm.comments);
+						$('#comments').empty();
+						vm.getEntryComments(vm.id_publicacion);
 					} else {
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							utilities.message("Error", "Atención", "danger");
+							//utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					utilities.message("Error", "Atención", "danger");
+					//utilities.message("Error", "Atención", "danger");
 				}
 			});
-			vm.tales = vm.parent;
 		}
 
 		vm.paintComments = function(comments) {
+			if (comments !== "[]") {
+				angular.forEach(comments, function(value, key) {
+					var pintado = $.inArray(value.id_comentario, vm.commentsPainted);
+					if (pintado = -1) {
+							var haveParent = utilities.searchIntoJson(comments, "id_comentario", value.id_parent_comment);
+							var dataHtml = vm.formatData(value,haveParent);
+							vm.paint(dataHtml);
+							vm.commentsPainted.push(value.id_comentario);
+							var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
+							if (filterComments.length > 0 ) {
+								vm.paintComments(filterComents);
+							}
+					}
+				});
+			}
+		}
+
+		vm.paintComments_old = function(comments) {
 			angular.forEach(comments, function(value, key) {
 				var pintado = $.inArray(value.id_comentario, vm.commentsPainted);
 				if (pintado = -1) {

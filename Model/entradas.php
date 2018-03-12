@@ -116,6 +116,7 @@ class ModelEntradas {
 												'id_comentario' => $row['id_comentario'],
 												'id_parent_comment' => $row['id_parent_comment'],
 												'comentario' => $row['comentario'],
+												'fecha_creacion' => $row['fecha_creacion'],
 										);
 								}
 								$datos = json_encode($DataEvents);
@@ -139,7 +140,7 @@ class ModelEntradas {
 	
 	public function registrarComentario($id_publicacion,$comentario,$id_parent_comment) {
 			$id_usuario = $_SESSION['id_user'];
-			$fecha_creacion = date("Y/m/d");
+			$fecha_creacion = date("Y/m/d h:i:s");
 			$id_comentario = $this->GUID();
 			
 			try {
