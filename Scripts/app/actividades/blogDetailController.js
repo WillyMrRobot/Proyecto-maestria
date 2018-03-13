@@ -84,35 +84,37 @@
 		vm.commentsPainted = [];
 
 		vm.formatData = function(comment,parent) {
-			var comentarioPadre = (parent.comentario) ? parent.comentario : "";
-			return `<div id="`+comment.id_comentario+`">
-								<div class="row" style="margin-top:5px;background-color:white;">
-									<div class="col-xs-12"><p style="font-style: italic;font-size: 10px;"`+comentarioPadre+`</div>
+			var comentarioPadre = (parent.length === 0) ? "" : "<strong>En respuesta a :</strong> " + parent[0].comentario + "&nbsp;--" + parent[0].userName;
+			return `<dynamic id="`+comment.id_comentario+`">
+								<div class="row" style="margin-top:5px;padding-top:5px;background-color:white;">
+									<div class="col-xs-12"><p style="font-style: italic;font-size: 10px;background-color:#e8e8e8;">`+comentarioPadre+`</p></div>
 									<div class="col-xs-2">
-										<i class="fa fa-user"/>`+comment.userName+`
+										<p>`+comment.userName+`<br/>
+											<i class="fa fa-calendar"/>&nbsp;`+comment.fecha_creacion+`
+										</p>
 									</div>
 									<div class="col-xs-8">`+comment.comentario+`</div>
 									<div class="col-xs-2">
-										<i class="fa fa-calendar"/>`+comment.fecha_creacion+`
-										<!--<button class="btn btn-primary" ng-click="vm.dejarComentario('`+comment.id_comentario+`')" value="Comentar">Comentar</button>-->
+										<button class="btn btn-primary" ng-click="vm.dejarComentario('`+comment.id_comentario+`')" value="Comentar">Comentar</button>
 									</div>
 								</div>
-							</div>`;
+							</dynamic>`;
 		}
 
 		vm.dejarComentario = function(id_comentario) {
-			return `<div class="card my-4">
+			var template = `<div class="card my-4">
 						<h5 class="card-header">Deja un comentario:</h5>
 						<div class="card-body">
 							<form>
 								<div class="form-group" style="margin-bottom:2px!important;">
-									<input type="hidden" value="` + id_comentario + `"/>
-									<textarea class="form-control" rows="3"></textarea>
+									<textarea class="form-control" rows="3" id="` + id_comentario + `Comment"></textarea>
 								</div>
-								<button type="submit" class="btn btn-primary">Enviar</button>
+								<button type="submit" class="btn btn-primary" ng-click="vm.guardarComentario('` + vm.id_publicacion + `','` + id_comentario + `')">Enviar</button>
 							</form>
 						</div>
 					</div>`;
+			var compiledHtml = $compile(template)($scope);
+			$('#'+id_comentario).append(compiledHtml);		
 		}
 
 		vm.paint = function(data) {
@@ -123,7 +125,7 @@
 		vm.guardarComentario = function (id_publicacion,id_parent_comment) {
 			vm.parent.id_publicacion = id_publicacion;
 			vm.parent.id_parent_comment = id_parent_comment;
-			vm.parent.comentario = $("#parentComment").val();
+			vm.parent.comentario = (id_parent_comment == 0) ? $("#parentComment").val() : $("#" + id_parent_comment + "Comment").val();
 			servicesActivities.sendComment(vm.parent).then(function (result) {
 				var dataJson = result;
 				try {
@@ -152,10 +154,10 @@
 							var dataHtml = vm.formatData(value,haveParent);
 							vm.paint(dataHtml);
 							vm.commentsPainted.push(value.id_comentario);
-							var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
-							if (filterComments.length > 0 ) {
-								vm.paintComments(filterComents);
-							}
+							// var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
+							// if (filterComments !== "[]" ) {
+							// 	vm.paintComments(filterComents);
+							// }
 					}
 				});
 			}

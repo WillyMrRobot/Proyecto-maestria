@@ -33,8 +33,8 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="topic in vm.topics">
-							<td>
-								<img alt="" width="25" height="25" src="img/users/{{ topic.userFoto }}" class="avatar" title="{{ topic.userName}}" data-toggle="tooltip" data-placement="bottom" title="{{ topic.userName}}"/>
+							<td style="text-align: center;">
+								<img alt="" width="25" height="25" src="img/users/{{ topic.userFoto }}" class="img img-circle" title="{{ topic.userName}}" data-toggle="tooltip" data-placement="bottom" title="{{ topic.userName}}"/>
 							</td>
 							<td>
 									<p>{{ topic.titulo }}<button style="float:right;background-color:rgba(45,59,96,1);color:#fbf8f8;" ng-click="vm.comment(topic.id_publicacion)" class="btn btn-sm">Comentar</button></p>

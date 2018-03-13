@@ -140,7 +140,7 @@ class ModelEntradas {
 	
 	public function registrarComentario($id_publicacion,$comentario,$id_parent_comment) {
 			$id_usuario = $_SESSION['id_user'];
-			$fecha_creacion = date("Y/m/d h:i:s");
+			$fecha_creacion = date("Y/m/d H:i:s");
 			$id_comentario = $this->GUID();
 			
 			try {
