@@ -109,7 +109,7 @@
 								<div class="form-group" style="margin-bottom:2px!important;">
 									<textarea class="form-control" rows="3" id="` + id_comentario + `Comment"></textarea>
 								</div>
-								<button type="submit" class="btn btn-primary" ng-click="vm.guardarComentario('` + vm.id_publicacion + `','` + id_comentario + `')">Enviar</button>
+								<button type="submit" class="btn btn-primary" id="` + id_comentario + `Button" ng-click="vm.guardarComentario('` + vm.id_publicacion + `','` + id_comentario + `')">Enviar</button>
 							</form>
 						</div>
 					</div>`;
@@ -123,6 +123,7 @@
 		}
 
 		vm.guardarComentario = function (id_publicacion,id_parent_comment) {
+			$("#"+id_parent_comment + "Button").prop("disabled", true);
 			vm.parent.id_publicacion = id_publicacion;
 			vm.parent.id_parent_comment = id_parent_comment;
 			vm.parent.comentario = (id_parent_comment == 0) ? $("#parentComment").val() : $("#" + id_parent_comment + "Comment").val();
@@ -130,6 +131,7 @@
 				var dataJson = result;
 				try {
 					if (dataJson.status === "ok") {
+						utilities.message("Comentario guardado", "Información", "success");
 						$('#comments').empty();
 						vm.getEntryComments(vm.id_publicacion);
 					} else {
