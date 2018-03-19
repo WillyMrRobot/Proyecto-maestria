@@ -33,10 +33,15 @@
                     controller: 'inicioCtrl',
                     controllerAs: 'vm'
                 })
-                .when('/habilidadesCriticas', {
-                    templateUrl: 'Vistas/Actividades/habilidadesCriticas.html',
-                    controller: 'habilidadesCtrl',
+                .when('/lecturas', {
+                    templateUrl: 'Vistas/Actividades/lectura.html',
+                    controller: 'lecturaCtrl',
                     controllerAs: 'vm'
+                })
+                .when('/lecturas/:id_publicacion', {
+                    templateUrl: 'Vistas/Actividades/lectura_detail.html',
+                    controller: 'lecturaDetailCtrl',
+                    controllerAs: 'vm'  
                 })
                 .when('/foro/:id_publicacion', {
                     templateUrl: 'Vistas/Actividades/blog_detail.html',

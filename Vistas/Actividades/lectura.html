@@ -1,0 +1,65 @@
+<div id="cursos">
+	<section class="content-header">
+		<div class="row">
+			<div class="col-xs-8">
+				<h1>
+					Bienvenidos a la Actividad 4
+					<br/>
+					<small>
+						Instrumento para Estudiantes de 15 a 18 años
+					</small>
+				</h1>
+			</div>
+			<div class="col-xs-4" style="text-align:right;">
+				<form class="navbar-form">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Buscar...">
+					</div>
+					<button type="submit" class="btn btn-default">Buscar</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="content" style="background-color:#f1f2f4;">
+        <p style="font-size:18px;">
+            A continuación encontraron dos textos, debe leerlos y utilizando las 22 técnicas de Cassany analizarlos.<br/> 
+            Al ingresar a cada lectura encontraras las técnicas de Cassany, debes descargar la lectura y el formulario.<br/>
+            Contesta las preguntas que se encuentran en el formulario y una vez contestadas carga el documento.
+        </p>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-responsive">
+					<thead>
+						<th style="text-align: center;">Usuario</th>
+						<th style="text-align: center;">Tema</th>
+						<th style="text-align: center;">Cargado</th>
+						<th style="text-align: center;">Visto</th>
+						<th style="text-align: center;">Creado</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="topic in vm.topics">
+							<td style="text-align: center;">
+								<img alt="" width="25" height="25" src="img/users/{{ topic.userFoto }}" class="img img-circle" title="{{ topic.userName}}" data-toggle="tooltip" data-placement="bottom" title="{{ topic.userName}}"/>
+							</td>
+							<td>
+									<p>{{ topic.titulo }}<button style="float:right;background-color:rgba(45,59,96,1);color:#fbf8f8;" ng-click="vm.comment(topic.id_publicacion)" class="btn btn-sm">Ingresar</button></p>
+							</td>
+							<td style="text-align: center;">
+								<span class="badge" style="background-color: #c67605;">{{ topic.comentarios}}</span>
+							</td>
+							<td style="text-align: center;">
+								<span class="badge primary" style="background-color: #3a87ad;">{{ topic.visto}}</span>
+							</td>
+							<td style="text-align: center;">
+								<span><i class="fa fa-calendar"/>&nbsp;{{ topic.fecha_creacion | date}}</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			
+		</div>
+	</section>
+</div>

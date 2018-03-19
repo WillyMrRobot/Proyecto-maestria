@@ -52,11 +52,11 @@
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							//utilities.message("Error", "Atención", "danger");
+							utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					//utilities.message("Error", "Atención", "danger");
+					utilities.message("Error", "Atención", "danger");
 				}
 			});
 		}
@@ -72,16 +72,17 @@
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							//utilities.message("Error", "Atención", "danger");
+							utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					//utilities.message("Error", "Atención", "danger");
+					utilities.message("Error", "Atención", "danger");
 				}
 			});
 		}
 		
 		vm.commentsPainted = [];
+		vm.dataPainted = [];
 
 		vm.formatData = function(comment,parent) {
 			var comentarioPadre = (parent.length === 0) ? "" : "<strong>En respuesta a :</strong> " + parent[0].comentario + "&nbsp;--" + parent[0].userName;
@@ -102,7 +103,7 @@
 		}
 
 		vm.dejarComentario = function(id_comentario) {
-			var template = `<div class="card my-4">
+			var template = `<div class="card my-4" id="`+id_comentario+`Box">
 						<h5 class="card-header">Deja un comentario:</h5>
 						<div class="card-body">
 							<form>
@@ -117,9 +118,9 @@
 			$('#'+id_comentario).append(compiledHtml);		
 		}
 
-		vm.paint = function(data) {
+		vm.paint = function(data,id) {
 			var compiledHtml = $compile(data)($scope);
-			$('#comments').append(compiledHtml);
+			$('#'+id).append(compiledHtml);
 		}
 
 		vm.guardarComentario = function (id_publicacion,id_parent_comment) {
@@ -132,17 +133,17 @@
 				try {
 					if (dataJson.status === "ok") {
 						utilities.message("Comentario guardado", "Información", "success");
-						$('#comments').empty();
-						vm.getEntryComments(vm.id_publicacion);
+						vm.getEntryComments(id_publicacion);
+						$("#" + id_parent_comment + "Box").css("display","none");
 					} else {
 						if (dataJson.data === "NoSession") {
 							document.location.href = "usuario.html";
 						} else {
-							//utilities.message("Error", "Atención", "danger");
+							utilities.message("Error", "Atención", "danger");
 						}
 					}
 				} catch (e) {
-					//utilities.message("Error", "Atención", "danger");
+					utilities.message("Error", "Atención", "danger");
 				}
 			});
 		}
@@ -151,43 +152,41 @@
 			if (comments !== "[]") {
 				angular.forEach(comments, function(value, key) {
 					var pintado = $.inArray(value.id_comentario, vm.commentsPainted);
-					if (pintado = -1) {
+					if (pintado === -1) {
 							var haveParent = utilities.searchIntoJson(comments, "id_comentario", value.id_parent_comment);
 							var dataHtml = vm.formatData(value,haveParent);
-							vm.paint(dataHtml);
+							var id = (value.id_parent_comment === "0") ? "comments" : value.id_parent_comment;
+							vm.paint(dataHtml,id);
 							vm.commentsPainted.push(value.id_comentario);
-							// var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
-							// if (filterComments !== "[]" ) {
-							// 	vm.paintComments(filterComents);
-							// }
+							var childComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
+							if (childComments.length !== 0 ) {
+								 vm.paintChilds(comments,childComments);
+								 angular.forEach(childComments, function(value2, key2) {
+									vm.commentsPainted.push(value2.id_comentario);
+								 });
+							}
+					} else {
+						var childComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
+						if (childComments.length !== 0 ) {
+							 vm.paintChilds(comments,childComments);
+							 angular.forEach(childComments, function(value2, key2) {
+								vm.commentsPainted.push(value2.id_comentario);
+							 });
+						}
 					}
 				});
 			}
 		}
 
-		vm.paintComments_old = function(comments) {
-			angular.forEach(comments, function(value, key) {
+		vm.paintChilds = function(comments,childComments) {
+			angular.forEach(childComments, function(value, key) {
 				var pintado = $.inArray(value.id_comentario, vm.commentsPainted);
-				if (pintado = -1) {
-					if (value.id_parent_comment == "0") {
-						var dataHtml = vm.formatData(value);
-						vm.paint(dataHtml);
-						vm.commentsPainted.push(value.id_comentario);
-						var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
-						if (filterComments.length > 0 ) {
-							vm.paintComments(filterComents);
-						}
-					} else {
-						var dataHtml = vm.formatData(value);
-						var compiledHtml = $compile(dataHtml)($scope);
-						$('#comments').append(compiledHtml);
-						vm.commentsPainted.push(value.id_comentario);
-						var filterComments = utilities.searchIntoJson(comments, "id_parent_comment", value.id_comentario);
-						if (filterComments.length > 0 ) {
-							vm.paintComments(filterComents);
-						}
-					}
-				}
+				if (pintado === -1) {
+						var haveParent = utilities.searchIntoJson(comments, "id_comentario", value.id_parent_comment);
+						var dataHtml = vm.formatData(value,haveParent);
+						var id = (value.id_parent_comment === "0") ? "comments" : value.id_parent_comment;
+						vm.paint(dataHtml,id);
+				} 
 			});
 		}
 	}
